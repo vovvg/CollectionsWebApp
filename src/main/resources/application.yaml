@@ -1,0 +1,17 @@
+---
+server:
+  port: 8777
+
+spring:
+  application:
+    name: collection
+  datasource:
+    hikari:
+      connection-init-sql: CREATE SCHEMA IF NOT EXISTS "collections";
+      schema: collections
+    url: jdbc:postgresql://localhost:5432/postgres
+    username: me
+    password: pass
+  liquibase:
+    change-log: classpath:/liquibase/changelog-master.xml
+    enabled: true
